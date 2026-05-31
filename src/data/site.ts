@@ -7,6 +7,8 @@ export const site = {
   location: 'Florianópolis, Santa Catarina, Brazil',
   linkedin: 'https://www.linkedin.com/in/ruslan-tsitser/',
   github: 'https://github.com/RuslanTsitser',
+  photo: '/images/ruslan.png',
+  photoAlt: 'Ruslan Tsitser — Flutter developer',
 } as const;
 
 export const nav = [
