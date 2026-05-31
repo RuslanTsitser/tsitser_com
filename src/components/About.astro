@@ -19,7 +19,17 @@ import { about, site } from '../data/site';
         <div class="flex-1">
           <h2 class="font-serif text-3xl md:text-4xl font-bold mb-2">About me</h2>
           <span class="tag-pill inline-block mb-6">{about.tag}</span>
-          <p class="text-[var(--text-muted)] text-base md:text-lg leading-relaxed mb-10">{about.text}</p>
+          <p class="text-[var(--text-muted)] text-base md:text-lg leading-relaxed mb-6">{about.intro}</p>
+          <ul class="space-y-3 mb-10">
+            {
+              about.problems.map((problem) => (
+                <li class="flex gap-3 text-[var(--text-muted)] text-base md:text-lg leading-relaxed">
+                  <span class="material-symbols-outlined text-[var(--green)] text-xl shrink-0 mt-0.5">check_circle</span>
+                  <span>{problem}</span>
+                </li>
+              ))
+            }
+          </ul>
           <div class="grid grid-cols-3 gap-4 md:gap-8 pt-6 border-t border-[var(--border)]">
             {
               about.stats.map((stat) => (

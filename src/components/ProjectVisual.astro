@@ -1,10 +1,33 @@
+---
+interface Props {
+  title: string;
+  subtitle?: string;
+  iconUrl?: string;
+}
+
+const { title, subtitle = 'AI · Voice · Chat', iconUrl } = Astro.props;
+---
+
 <div
   class="w-full h-full min-h-[220px] md:min-h-[280px] rounded-xl overflow-hidden flex items-center justify-center relative"
   style="background: linear-gradient(135deg, var(--green) 0%, #2a3d2c 50%, var(--terra) 100%);"
 >
   <div class="text-center p-6 text-white/95">
-    <span class="material-symbols-outlined text-5xl mb-2">translate</span>
-    <p class="font-serif text-xl font-bold">Repeat Tutor</p>
-    <p class="text-sm opacity-80 mt-1">AI · Voice · Chat</p>
+    {
+      iconUrl ? (
+        <img
+          src={iconUrl}
+          alt={`${title} app icon`}
+          width="112"
+          height="112"
+          class="size-24 md:size-28 rounded-[1.75rem] shadow-lg mx-auto mb-4"
+          loading="lazy"
+        />
+      ) : (
+        <span class="material-symbols-outlined text-5xl mb-2">translate</span>
+      )
+    }
+    <p class="font-serif text-xl font-bold">{title}</p>
+    <p class="text-sm opacity-80 mt-1">{subtitle}</p>
   </div>
 </div>

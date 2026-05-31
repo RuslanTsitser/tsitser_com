@@ -1,11 +1,15 @@
 ---
-import { projects } from '../data/site';
+import { getProjects } from '../lib/projects';
+import { projectsSection } from '../data/site';
 import ProjectVisual from './ProjectVisual.astro';
+
+const projects = await getProjects();
 ---
 
 <section class="py-[var(--spacing-section)] px-5 md:px-10" id="projects">
   <div class="max-w-[var(--spacing-container)] mx-auto">
-    <h2 class="section-title mb-14 md:mb-20">Projects</h2>
+    <h2 class="section-title mb-4">{projectsSection.title}</h2>
+    <p class="text-center text-[var(--text-muted)] max-w-2xl mx-auto mb-14 md:mb-20">{projectsSection.description}</p>
     <div class="space-y-10 md:space-y-14">
       {
         projects.map((project) => (
@@ -17,7 +21,13 @@ import ProjectVisual from './ProjectVisual.astro';
               ]}
             >
               <div class="w-full lg:w-1/2 space-y-5">
-                <h3 class="font-serif text-2xl md:text-3xl font-bold">{project.title}</h3>
+                <div class="flex flex-wrap items-center gap-3">
+                  <h3 class="font-serif text-2xl md:text-3xl font-bold">{project.title}</h3>
+                  <span class="tag-pill">Personal project</span>
+                </div>
+                {project.subtitle && (
+                  <p class="text-sm font-semibold uppercase tracking-wider text-[var(--terra)]">{project.subtitle}</p>
+                )}
                 <div class="flex flex-wrap gap-2">
                   {project.tags.map((tag) => (
                     <span class="tag-pill">{tag}</span>
@@ -25,28 +35,30 @@ import ProjectVisual from './ProjectVisual.astro';
                 </div>
                 <p class="text-[var(--text-muted)] leading-relaxed">{project.description}</p>
                 <div class="flex flex-wrap items-center gap-4 pt-2">
-                  {project.primaryHref ? (
-                    <a href={project.primaryHref} target="_blank" rel="noopener noreferrer" class="btn-primary text-sm py-3 px-6">
-                      {project.primaryLabel}
-                    </a>
-                  ) : (
-                    <span class="tag-pill">{project.primaryLabel}</span>
-                  )}
-                  {project.secondaryLabel && project.primaryHref && (
-                    <a
-                      href={project.primaryHref}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="text-[var(--terra)] font-semibold flex items-center gap-1 hover:underline"
-                    >
-                      {project.secondaryLabel}
-                      <span class="material-symbols-outlined text-lg">arrow_forward</span>
-                    </a>
-                  )}
+                  <a
+                    href={project.appStoreUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn-primary text-sm py-3 px-6"
+                  >
+                    App Store
+                  </a>
+                  {
+                    project.playStoreUrl && (
+                      <a
+                        href={project.playStoreUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn-secondary text-sm py-3 px-6"
+                      >
+                        Google Play
+                      </a>
+                    )
+                  }
                 </div>
               </div>
               <div class="w-full lg:w-1/2">
-                <ProjectVisual />
+                <ProjectVisual title={project.title} subtitle={project.subtitle} iconUrl={project.iconUrl} />
               </div>
             </div>
           </article>

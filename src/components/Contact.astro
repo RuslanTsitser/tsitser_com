@@ -1,5 +1,7 @@
 ---
 import { site } from '../data/site';
+
+const redirectUrl = `${site.siteUrl}/?sent=1#contact`;
 ---
 
 <section class="py-[var(--spacing-section)] px-5 md:px-10" id="contact">
@@ -12,12 +14,19 @@ import { site } from '../data/site';
         </h2>
         <div class="space-y-5 text-[var(--text-muted)]">
           <a
+            href={`mailto:${site.email}`}
+            class="flex items-center gap-3 hover:text-[var(--text)] transition-colors"
+          >
+            <span class="material-symbols-outlined text-[var(--green)]">mail</span>
+            {site.email}
+          </a>
+          <a
             href={site.linkedin}
             target="_blank"
             rel="noopener noreferrer"
             class="flex items-center gap-3 hover:text-[var(--text)] transition-colors"
           >
-            <span class="material-symbols-outlined text-[var(--green)]">mail</span>
+            <span class="material-symbols-outlined text-[var(--green)]">link</span>
             LinkedIn — ruslan-tsitser
           </a>
           <a
@@ -36,45 +45,67 @@ import { site } from '../data/site';
         </div>
       </div>
       <div class="w-full lg:w-3/5">
-        <form
-          class="card-surface p-6 md:p-8 space-y-6"
-          action={site.linkedin}
-          method="get"
-          target="_blank"
-          rel="noopener noreferrer"
+        <div
+          id="contact-success"
+          class="hidden mb-6 rounded-xl border border-[var(--green)] bg-[color-mix(in_srgb,var(--green)_12%,var(--bg-card))] px-5 py-4 text-[var(--text)]"
+          role="status"
         >
+          Thanks for your message — I'll get back to you soon.
+        </div>
+        <form
+          action={site.formspreeEndpoint}
+          method="POST"
+          class="card-surface p-6 md:p-8 space-y-6"
+        >
+          <input type="hidden" name="_subject" value="Portfolio contact — tsitser.com" />
+          <input type="hidden" name="_next" value={redirectUrl} />
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true" />
+
           <div>
-            <label class="block text-xs font-semibold uppercase tracking-wider text-[var(--text-muted)] mb-2">Name</label>
+            <label class="block text-xs font-semibold uppercase tracking-wider text-[var(--text-muted)] mb-2" for="contact-name">Name</label>
             <input
+              id="contact-name"
               type="text"
               name="name"
               required
+              autocomplete="name"
               class="w-full rounded-xl px-4 py-3 border border-[var(--border)] outline-none focus:ring-2 focus:ring-[var(--green)] text-[var(--text)]"
               style="background: var(--input-bg);"
             />
           </div>
           <div>
-            <label class="block text-xs font-semibold uppercase tracking-wider text-[var(--text-muted)] mb-2">Email</label>
+            <label class="block text-xs font-semibold uppercase tracking-wider text-[var(--text-muted)] mb-2" for="contact-email">Email</label>
             <input
+              id="contact-email"
               type="email"
               name="email"
               required
+              autocomplete="email"
               class="w-full rounded-xl px-4 py-3 border border-[var(--border)] outline-none focus:ring-2 focus:ring-[var(--green)] text-[var(--text)]"
               style="background: var(--input-bg);"
             />
           </div>
           <div>
-            <label class="block text-xs font-semibold uppercase tracking-wider text-[var(--text-muted)] mb-2">Message</label>
+            <label class="block text-xs font-semibold uppercase tracking-wider text-[var(--text-muted)] mb-2" for="contact-message">Message</label>
             <textarea
+              id="contact-message"
               name="message"
               rows="4"
               required
               class="w-full rounded-xl px-4 py-3 border border-[var(--border)] outline-none focus:ring-2 focus:ring-[var(--green)] resize-none text-[var(--text)]"
               style="background: var(--input-bg);"></textarea>
           </div>
-          <button type="submit" class="btn-primary w-full md:w-auto"> Send Message </button>
+          <button type="submit" class="btn-primary w-full md:w-auto">Send Message</button>
         </form>
       </div>
     </div>
   </div>
 </section>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('sent') === '1') {
+    document.getElementById('contact-success')?.classList.remove('hidden');
+    history.replaceState(null, '', `${window.location.pathname}#contact`);
+  }
+</script>
