@@ -31,7 +31,10 @@ export async function getProjects(): Promise<Project[]> {
         playStoreUrl:
           playStore?.url ?? ('playStoreUrl' in project ? project.playStoreUrl : undefined),
         imageFirst: project.imageFirst,
-        iconUrl: appStore?.artworkUrl512 ?? playStore?.icon,
+        iconUrl:
+          ('icon' in project && project.icon) ||
+          appStore?.artworkUrl512 ||
+          playStore?.icon,
       };
     }),
   );

@@ -8,7 +8,10 @@ import ThemeToggle from './ThemeToggle.astro';
   style="background: var(--nav-bg); backdrop-filter: blur(12px);"
 >
   <nav class="max-w-[var(--spacing-container)] mx-auto px-5 md:px-10 py-5 flex justify-between items-center">
-    <a href="#home" class="font-serif text-xl md:text-2xl font-bold text-[var(--text)]">{site.name}</a>
+    <a href="#home" class="flex items-center gap-3 font-serif text-xl md:text-2xl font-bold text-[var(--text)]">
+      <img src={site.logo} alt="" width="36" height="36" class="size-8 md:size-9 rounded-lg" />
+      {site.name}
+    </a>
     <div class="hidden md:flex items-center gap-8">
       {
         nav.map((item) => (

@@ -12,6 +12,7 @@ export const site = {
   github: 'https://github.com/RuslanTsitser',
   photo: '/images/ruslan.png',
   photoAlt: 'Ruslan Tsitser — Flutter developer',
+  logo: '/images/logo.png',
 } as const;
 
 export const nav = [
