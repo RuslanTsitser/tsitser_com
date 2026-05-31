@@ -1,40 +1,10 @@
----
-interface Props {
-  accent: 'repeat' | 'ar' | 'tonnus';
-}
-
-const { accent } = Astro.props;
----
-
 <div
   class="w-full h-full min-h-[220px] md:min-h-[280px] rounded-xl overflow-hidden flex items-center justify-center relative"
   style="background: linear-gradient(135deg, var(--green) 0%, #2a3d2c 50%, var(--terra) 100%);"
 >
-  {
-    accent === 'repeat' && (
-      <div class="text-center p-6 text-white/95">
-        <span class="material-symbols-outlined text-5xl mb-2">translate</span>
-        <p class="font-serif text-xl font-bold">Repeat Tutor</p>
-        <p class="text-sm opacity-80 mt-1">AI · Voice · Chat</p>
-      </div>
-    )
-  }
-  {
-    accent === 'ar' && (
-      <div class="text-center p-6 text-white/95">
-        <span class="material-symbols-outlined text-5xl mb-2">view_in_ar</span>
-        <p class="font-serif text-xl font-bold">AR Studio</p>
-        <p class="text-sm opacity-80 mt-1">9M+ downloads</p>
-      </div>
-    )
-  }
-  {
-    accent === 'tonnus' && (
-      <div class="text-center p-6 text-white/95">
-        <span class="material-symbols-outlined text-5xl mb-2">analytics</span>
-        <p class="font-serif text-xl font-bold">Tonnus</p>
-        <p class="text-sm opacity-80 mt-1">Realtime · JWT</p>
-      </div>
-    )
-  }
+  <div class="text-center p-6 text-white/95">
+    <span class="material-symbols-outlined text-5xl mb-2">translate</span>
+    <p class="font-serif text-xl font-bold">Repeat Tutor</p>
+    <p class="text-sm opacity-80 mt-1">AI · Voice · Chat</p>
+  </div>
 </div>

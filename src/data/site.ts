@@ -49,29 +49,6 @@ export const projects = [
     primaryLabel: 'View Details',
     secondaryLabel: 'View Project',
     imageFirst: false,
-    accent: 'repeat' as const,
-  },
-  {
-    title: 'AR Drawing Studio',
-    description:
-      'App developed from scratch to 9M+ downloads (NDA). AR drawing, subscriptions, AI image generation, Firebase, remote config and A/B tests.',
-    tags: ['Flutter', 'AR', 'Firebase', 'IAP'],
-    primaryHref: null,
-    primaryLabel: 'NDA',
-    secondaryLabel: null,
-    imageFirst: true,
-    accent: 'ar' as const,
-  },
-  {
-    title: 'Tonnus',
-    description:
-      'Business app at Visotsky Consulting: JWT auth, WebSocket updates, charts, rich text editor, Firebase and multilingual support.',
-    tags: ['Flutter', 'WebSockets', 'JWT', 'Firebase'],
-    primaryHref: null,
-    primaryLabel: 'NDA',
-    secondaryLabel: null,
-    imageFirst: false,
-    accent: 'tonnus' as const,
   },
 ] as const;
 
