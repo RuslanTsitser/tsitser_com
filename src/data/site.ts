@@ -2,12 +2,11 @@ export const site = {
   name: 'Ruslan Tsitser',
   title: 'Ruslan Tsitser | Flutter Developer',
   role: 'Flutter Developer',
-  tagline: 'Creator of Repeat Tutor',
+  heroTitle: 'Mobile Apps From Idea to App Store',
+  heroSubtitle: 'Creator of Repeat Tutor · 6+ years in Flutter',
   location: 'Florianópolis, Santa Catarina, Brazil',
-  email: null as string | null,
   linkedin: 'https://www.linkedin.com/in/ruslan-tsitser/',
   github: 'https://github.com/RuslanTsitser',
-  resume: 'https://www.linkedin.com/in/ruslan-tsitser/',
 } as const;
 
 export const nav = [
@@ -17,31 +16,24 @@ export const nav = [
   { href: '#contact', label: 'Contact' },
 ] as const;
 
-export const techStack = [
-  'Flutter',
-  'Dart',
-  'Firebase',
-  'AR / ARKit',
-  'In-App Purchases',
-  'WebSockets',
-  'Remote Config',
-  'A/B Testing',
-  'Git',
-  'CI/CD',
-] as const;
-
-export const services = [
-  { icon: 'phone_iphone', title: 'Mobile App Development' },
-  { icon: 'view_in_ar', title: 'AR & Camera Integrations' },
-  { icon: 'cloud_done', title: 'Firebase & Backend' },
+export const skills = [
+  { name: 'Flutter', color: '#54C5F8' },
+  { name: 'Dart', color: '#0175C2' },
+  { name: 'Firebase', color: '#FFCA28' },
+  { name: 'AR', color: '#4B634E' },
+  { name: 'iOS', color: '#555555' },
+  { name: 'Android', color: '#3DDC84' },
+  { name: 'Git', color: '#F05032' },
+  { name: 'GitHub', color: '#24292F' },
 ] as const;
 
 export const about = {
-  text: `I'm a mobile application developer focused on Flutter — from idea and UX to release and ongoing improvements. I build products end to end: subscriptions, push and local notifications, AR, AI features, real-time data, analytics, and localization. Currently at Digital Solutions Technologies Limited; previously at Visotsky Consulting and Mobil2b. I also created Repeat Tutor — an AI language practice app with chat corrections and voice calls.`,
+  tag: 'Professional bio',
+  text: `I'm a mobile application developer focused on Flutter — from idea and UX to release and ongoing improvements. I build products end to end: subscriptions, push and local notifications, AR, AI features, real-time data, analytics, and localization. Currently at Digital Solutions Technologies Limited; previously at Visotsky Consulting and Mobil2b.`,
   stats: [
-    { value: '6+', label: 'Years Experience' },
-    { value: '9M+', label: 'App Downloads (NDA)' },
-    { value: '75+', label: 'GitHub Contributions' },
+    { value: '6+', label: 'Years' },
+    { value: '9M+', label: 'Downloads' },
+    { value: '75+', label: 'GitHub' },
   ],
 } as const;
 
@@ -49,37 +41,40 @@ export const projects = [
   {
     title: 'Repeat Tutor',
     description:
-      'Language practice app with an AI tutor: chat conversations, automatic error corrections with explanations, and voice calls for speaking practice. Built as a product I use myself — from idea and UX to App Store release.',
-    tags: ['Flutter', 'Dart', 'AI', 'Voice', 'iOS'],
-    github: null,
-    link: 'https://lnkd.in/eSE46ajM',
-    linkLabel: 'App Store',
-    preview: 'repeat',
+      'Language practice with an AI tutor: chat, automatic corrections with explanations, and voice calls. Built from idea to App Store release.',
+    tags: ['Flutter', 'Dart', 'AI', 'iOS'],
+    primaryHref: 'https://lnkd.in/eSE46ajM',
+    primaryLabel: 'View Details',
+    secondaryLabel: 'View Project',
+    imageFirst: false,
+    accent: 'repeat' as const,
   },
   {
     title: 'AR Drawing Studio',
     description:
-      'Mobile app developed from scratch to 9M+ downloads (NDA). AR drawing on any surface, subscriptions and in-app purchases, AI image generation, camera pipelines, Firebase Analytics & Crashlytics, remote config and A/B tests.',
-    tags: ['Flutter', 'AR', 'Firebase', 'IAP', 'AI'],
-    github: null,
-    link: null,
-    linkLabel: 'NDA',
-    preview: 'ar',
+      'App developed from scratch to 9M+ downloads (NDA). AR drawing, subscriptions, AI image generation, Firebase, remote config and A/B tests.',
+    tags: ['Flutter', 'AR', 'Firebase', 'IAP'],
+    primaryHref: null,
+    primaryLabel: 'NDA',
+    secondaryLabel: null,
+    imageFirst: true,
+    accent: 'ar' as const,
   },
   {
     title: 'Tonnus',
     description:
-      'Business app built from scratch at Visotsky Consulting: email auth with JWT and refresh tokens, WebSocket real-time updates, charts and sheets, rich text editor, Firebase, remote config, and multilingual support.',
+      'Business app at Visotsky Consulting: JWT auth, WebSocket updates, charts, rich text editor, Firebase and multilingual support.',
     tags: ['Flutter', 'WebSockets', 'JWT', 'Firebase'],
-    github: null,
-    link: null,
-    linkLabel: 'View project',
-    preview: 'tonnus',
+    primaryHref: null,
+    primaryLabel: 'NDA',
+    secondaryLabel: null,
+    imageFirst: false,
+    accent: 'tonnus' as const,
   },
 ] as const;
 
 export const social = [
-  { icon: 'mail', href: site.linkedin, label: 'LinkedIn' },
+  { icon: 'link', href: site.linkedin, label: 'LinkedIn' },
   { icon: 'code', href: site.github, label: 'GitHub' },
-  { icon: 'work', href: site.linkedin, label: 'LinkedIn' },
+  { icon: 'mail', href: site.linkedin, label: 'Contact' },
 ] as const;

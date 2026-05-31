@@ -3,22 +3,18 @@ import { site, nav } from '../data/site';
 import ThemeToggle from './ThemeToggle.astro';
 ---
 
-<header class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-[var(--card-border)]">
-  <nav
-    class="flex justify-between items-center max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-margin-mobile)] py-4"
-  >
-    <a href="#home" class="font-headline text-xl font-bold text-on-surface">{site.name}</a>
-    <div class="hidden md:flex gap-[var(--spacing-gutter)] items-center">
+<header
+  class="fixed top-0 w-full z-50 border-b border-[var(--border)]"
+  style="background: var(--nav-bg); backdrop-filter: blur(12px);"
+>
+  <nav class="max-w-[var(--spacing-container)] mx-auto px-5 md:px-10 py-5 flex justify-between items-center">
+    <a href="#home" class="font-serif text-xl md:text-2xl font-bold text-[var(--text)]">{site.name}</a>
+    <div class="hidden md:flex items-center gap-8">
       {
-        nav.map((item, i) => (
+        nav.map((item) => (
           <a
             href={item.href}
-            class:list={[
-              'transition-colors font-medium',
-              i === 0
-                ? 'text-primary-container font-bold border-b-2 border-primary-container pb-1'
-                : 'text-on-surface hover:text-primary-container',
-            ]}
+            class="text-[var(--text-muted)] hover:text-[var(--text)] font-medium transition-colors"
           >
             {item.label}
           </a>
@@ -28,27 +24,25 @@ import ThemeToggle from './ThemeToggle.astro';
     </div>
     <div class="flex md:hidden items-center gap-2">
       <ThemeToggle />
-      <button type="button" id="mobile-menu-btn" class="p-2 text-primary-container" aria-label="Menu">
+      <button type="button" id="mobile-menu-btn" class="p-2 text-[var(--text)]" aria-label="Menu">
         <span class="material-symbols-outlined">menu</span>
       </button>
     </div>
   </nav>
-  <div id="mobile-menu" class="hidden md:hidden border-t border-[var(--card-border)] bg-background/95 backdrop-blur-md">
-    <div class="flex flex-col gap-4 p-6">
-      {nav.map((item) => (
-        <a href={item.href} class="text-on-surface hover:text-primary-container font-medium">
+  <div id="mobile-menu" class="hidden md:hidden border-t border-[var(--border)] px-5 pb-5">
+    {
+      nav.map((item) => (
+        <a href={item.href} class="block py-3 text-[var(--text-muted)] hover:text-[var(--text)] font-medium">
           {item.label}
         </a>
-      ))}
-    </div>
+      ))
+    }
   </div>
 </header>
 
 <script>
-  const menuBtn = document.getElementById('mobile-menu-btn');
+  const btn = document.getElementById('mobile-menu-btn');
   const menu = document.getElementById('mobile-menu');
-  menuBtn?.addEventListener('click', () => menu?.classList.toggle('hidden'));
-  menu?.querySelectorAll('a').forEach((link) => {
-    link.addEventListener('click', () => menu.classList.add('hidden'));
-  });
+  btn?.addEventListener('click', () => menu?.classList.toggle('hidden'));
+  menu?.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => menu?.classList.add('hidden')));
 </script>

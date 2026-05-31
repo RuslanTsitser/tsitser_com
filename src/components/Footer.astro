@@ -2,31 +2,26 @@
 import { site, social } from '../data/site';
 ---
 
-<footer class="w-full py-[var(--spacing-section-gap)] bg-surface-container-lowest border-t border-[var(--card-border)]">
-  <div
-    class="flex flex-col items-center gap-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-margin-mobile)]"
-  >
-    <span class="font-headline text-xl font-bold text-on-surface">{site.name}</span>
-    <p class="text-on-surface-variant text-center max-w-md">
-      Flutter developer · Repeat Tutor · Florianópolis, Brazil
+<footer class="py-16 md:py-20 px-5 border-t border-[var(--border)]">
+  <div class="max-w-[var(--spacing-container)] mx-auto text-center">
+    <p class="font-serif text-xl md:text-2xl font-bold mb-2">{site.name}</p>
+    <p class="text-sm text-[var(--text-muted)] mb-8">
+      Designed with care · © {new Date().getFullYear()} {site.name}
     </p>
-    <div class="flex gap-8 mt-4">
+    <div class="flex justify-center gap-6">
       {
         social.map((item) => (
           <a
             href={item.href}
             target="_blank"
             rel="noopener noreferrer"
-            class="text-on-surface-variant hover:text-primary-container transition-transform hover:scale-110"
+            class="text-[var(--text-muted)] hover:text-[var(--green)] transition-colors"
             aria-label={item.label}
           >
-            <span class="material-symbols-outlined text-3xl">{item.icon}</span>
+            <span class="material-symbols-outlined text-2xl">{item.icon}</span>
           </a>
         ))
       }
     </div>
-    <p class="text-sm text-on-surface-variant/70 mt-8">
-      © {new Date().getFullYear()} {site.name}. Design: Midnight Pulse (Stitch).
-    </p>
   </div>
 </footer>

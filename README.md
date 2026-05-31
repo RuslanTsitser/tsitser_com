@@ -1,6 +1,6 @@
 # tsitser.com
 
-Портфолио Flutter-разработчика на базе дизайна **Developer Portfolio Design** (Stitch, тема Midnight Pulse).
+Портфолио Flutter-разработчика по дизайну **Developer Portfolio Design** (Stitch): бежевый/тёмный фон, Playfair Display + Inter, зелёные и терракотовые акценты.
 
 ## Стек
 

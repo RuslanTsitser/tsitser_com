@@ -2,85 +2,77 @@
 import { site } from '../data/site';
 ---
 
-<section class="py-[var(--spacing-section-gap)] relative" id="contact">
-  <div class="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-margin-mobile)]">
-    <div class="flex flex-col md:flex-row gap-16 md:gap-24">
-      <div class="w-full md:w-1/2">
-        <div class="flex items-center gap-2 mb-4">
-          <span class="w-12 h-0.5 bg-primary-container"></span>
-          <p class="text-primary-container font-mono-label uppercase tracking-widest">Contact</p>
-        </div>
-        <h2 class="font-headline text-4xl md:text-5xl font-extrabold mb-12">
+<section class="py-[var(--spacing-section)] px-5 md:px-10" id="contact">
+  <div class="max-w-[var(--spacing-container)] mx-auto">
+    <div class="flex flex-col lg:flex-row gap-12 lg:gap-16">
+      <div class="w-full lg:w-2/5">
+        <p class="text-xs font-semibold uppercase tracking-widest text-[var(--terra)] mb-3">Contact</p>
+        <h2 class="font-serif text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-10">
           Have a project?<br />Let's talk!
         </h2>
-        <div class="space-y-6">
+        <div class="space-y-5 text-[var(--text-muted)]">
           <a
             href={site.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            class="flex items-center gap-4 text-on-surface-variant hover:text-primary-container transition-colors"
+            class="flex items-center gap-3 hover:text-[var(--text)] transition-colors"
           >
-            <span class="material-symbols-outlined text-primary-container">work</span>
-            <span>LinkedIn — ruslan-tsitser</span>
+            <span class="material-symbols-outlined text-[var(--green)]">mail</span>
+            LinkedIn — ruslan-tsitser
           </a>
           <a
             href={site.github}
             target="_blank"
             rel="noopener noreferrer"
-            class="flex items-center gap-4 text-on-surface-variant hover:text-primary-container transition-colors"
+            class="flex items-center gap-3 hover:text-[var(--text)] transition-colors"
           >
-            <span class="material-symbols-outlined text-primary-container">code</span>
-            <span>GitHub — RuslanTsitser</span>
+            <span class="material-symbols-outlined text-[var(--green)]">code</span>
+            GitHub — RuslanTsitser
           </a>
-          <div class="flex items-center gap-4 text-on-surface-variant">
-            <span class="material-symbols-outlined text-primary-container">location_on</span>
-            <span>{site.location}</span>
+          <div class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-[var(--green)]">location_on</span>
+            {site.location}
           </div>
         </div>
       </div>
-      <div class="w-full md:w-1/2">
+      <div class="w-full lg:w-3/5">
         <form
-          class="space-y-[var(--spacing-gutter)] glass-card p-8 rounded-xl"
-          action={`https://www.linkedin.com/in/ruslan-tsitser/`}
+          class="card-surface p-6 md:p-8 space-y-6"
+          action={site.linkedin}
           method="get"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <p class="text-on-surface-variant text-sm mb-2">
-            Submit opens LinkedIn — the best way to reach me for new projects.
-          </p>
           <div>
-            <label class="block font-mono-label text-on-surface-variant mb-2 uppercase">Name</label>
+            <label class="block text-xs font-semibold uppercase tracking-wider text-[var(--text-muted)] mb-2">Name</label>
             <input
-              class="w-full bg-background border-b border-[var(--card-border)] focus:border-primary-container focus:ring-0 text-on-surface transition-colors py-3 px-0 outline-none"
               type="text"
               name="name"
               required
+              class="w-full rounded-xl px-4 py-3 border border-[var(--border)] outline-none focus:ring-2 focus:ring-[var(--green)] text-[var(--text)]"
+              style="background: var(--input-bg);"
             />
           </div>
           <div>
-            <label class="block font-mono-label text-on-surface-variant mb-2 uppercase">Email</label>
+            <label class="block text-xs font-semibold uppercase tracking-wider text-[var(--text-muted)] mb-2">Email</label>
             <input
-              class="w-full bg-background border-b border-[var(--card-border)] focus:border-primary-container focus:ring-0 text-on-surface transition-colors py-3 px-0 outline-none"
               type="email"
               name="email"
               required
+              class="w-full rounded-xl px-4 py-3 border border-[var(--border)] outline-none focus:ring-2 focus:ring-[var(--green)] text-[var(--text)]"
+              style="background: var(--input-bg);"
             />
           </div>
           <div>
-            <label class="block font-mono-label text-on-surface-variant mb-2 uppercase">Message</label>
+            <label class="block text-xs font-semibold uppercase tracking-wider text-[var(--text-muted)] mb-2">Message</label>
             <textarea
-              class="w-full bg-background border-b border-[var(--card-border)] focus:border-primary-container focus:ring-0 text-on-surface transition-colors py-3 px-0 resize-none outline-none"
-              rows="4"
               name="message"
-              required></textarea>
+              rows="4"
+              required
+              class="w-full rounded-xl px-4 py-3 border border-[var(--border)] outline-none focus:ring-2 focus:ring-[var(--green)] resize-none text-[var(--text)]"
+              style="background: var(--input-bg);"></textarea>
           </div>
-          <button
-            type="submit"
-            class="w-full md:w-auto bg-primary-container text-on-primary-container px-12 py-4 rounded-lg font-bold hover:scale-105 active:scale-95 transition-transform mt-4"
-          >
-            Connect on LinkedIn
-          </button>
+          <button type="submit" class="btn-primary w-full md:w-auto"> Send Message </button>
         </form>
       </div>
     </div>
