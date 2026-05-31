@@ -1,0 +1,74 @@
+---
+import { projects } from '../data/site';
+import ProjectPreview from './ProjectPreview.astro';
+---
+
+<section class="py-[var(--spacing-section-gap)] bg-surface-container-lowest" id="projects">
+  <div class="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-margin-mobile)]">
+    <div class="text-center mb-24">
+      <h2 class="font-headline text-4xl md:text-5xl font-extrabold mb-4">Projects</h2>
+      <div class="w-1 h-20 bg-primary-container mx-auto"></div>
+    </div>
+    <div class="space-y-32">
+      {
+        projects.map((project, index) => {
+          const imageFirst = index % 2 === 1;
+          return (
+            <div class="flex flex-col md:flex-row gap-[var(--spacing-gutter)] items-center">
+              <div
+                class:list={[
+                  'w-full md:w-1/2 space-y-6',
+                  imageFirst ? 'order-2 md:order-2' : 'order-2 md:order-1',
+                ]}
+              >
+                <h3 class="font-headline text-3xl md:text-4xl font-bold">{project.title}</h3>
+                <div class="flex flex-wrap gap-2">
+                  {project.tags.map((tag) => (
+                    <span class="px-4 py-1 bg-[var(--card-border)] rounded-full font-mono-label text-xs">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <p class="text-lg text-on-surface-variant max-w-md leading-relaxed">{project.description}</p>
+                <div class="flex flex-wrap gap-4 pt-4">
+                  {project.github && (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="bg-primary-container text-on-primary-container px-6 py-2 rounded-lg font-bold hover:scale-105 transition-transform"
+                    >
+                      View GitHub
+                    </a>
+                  )}
+                  {project.link && (
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-primary-container flex items-center gap-2 font-bold hover:underline"
+                    >
+                      {project.linkLabel}
+                      <span class="material-symbols-outlined text-sm">open_in_new</span>
+                    </a>
+                  )}
+                  {!project.link && !project.github && (
+                    <span class="font-mono-label text-on-surface-variant uppercase">{project.linkLabel}</span>
+                  )}
+                </div>
+              </div>
+              <div
+                class:list={['w-full md:w-1/2', imageFirst ? 'order-1 md:order-1' : 'order-1 md:order-2']}
+              >
+                <div class="glass-card p-6 rounded-xl aspect-video relative overflow-hidden group">
+                  <ProjectPreview type={project.preview} />
+                  <div class="absolute inset-0 bg-primary-container/10 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+                </div>
+              </div>
+            </div>
+          );
+        })
+      }
+    </div>
+  </div>
+</section>

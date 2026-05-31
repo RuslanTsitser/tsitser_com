@@ -1,0 +1,50 @@
+---
+import { site } from '../data/site';
+---
+
+<section
+  class="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-margin-mobile)] flex flex-col md:flex-row items-center justify-between gap-[var(--spacing-gutter)] min-h-[80vh]"
+>
+  <div class="w-full md:w-1/2 z-10">
+    <div class="flex items-center gap-2 mb-4">
+      <span class="w-12 h-0.5 bg-primary-container"></span>
+      <p class="text-primary-container font-headline text-lg font-semibold">
+        Hello <span class="inline-block w-2 h-2 rounded-full bg-primary-container align-middle"></span>
+      </p>
+    </div>
+    <h1 class="font-headline text-4xl md:text-6xl md:leading-[1.1] font-extrabold tracking-tight mb-4">
+      I'm Ruslan<br />
+      <span class="text-on-surface">{site.role}</span>
+    </h1>
+    <p class="text-on-surface-variant text-lg max-w-lg mb-6">{site.tagline}</p>
+    <div class="flex flex-wrap gap-4 mt-4">
+      <a
+        href="#contact"
+        class="bg-primary-container text-on-primary-container px-8 py-3 font-bold rounded-lg hover:scale-105 transition-transform active:scale-95"
+      >
+        Got a project?
+      </a>
+      <a
+        href={site.linkedin}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="border border-primary-container text-primary-container px-8 py-3 font-bold rounded-lg hover:bg-primary-container/10 transition-all active:scale-95"
+      >
+        LinkedIn
+      </a>
+    </div>
+  </div>
+  <div class="w-full md:w-1/2 relative flex justify-center items-center py-12">
+    <div class="hero-wireframe w-[80%] max-w-md aspect-square -right-10 -top-10"></div>
+    <div class="hero-wireframe w-[90%] max-w-lg aspect-square opacity-50"></div>
+    <div
+      class="relative w-72 md:w-96 aspect-square rounded-full overflow-hidden border-4 border-primary-container shadow-2xl z-10 flex items-center justify-center bg-surface-container-high"
+    >
+      <span class="font-headline text-7xl md:text-8xl font-extrabold text-primary-container/90 select-none">RT</span>
+    </div>
+    <span class="material-symbols-outlined absolute left-0 top-1/4 text-primary-container/40 text-6xl">phone_android</span>
+    <span class="material-symbols-outlined absolute right-10 bottom-1/4 text-primary-container/40 text-6xl rotate-12"
+      >terminal</span
+    >
+  </div>
+</section>

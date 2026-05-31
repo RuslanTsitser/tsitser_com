@@ -1,0 +1,17 @@
+---
+import { techStack } from '../data/site';
+---
+
+<section class="w-full py-16 bg-surface-container-low/50 backdrop-blur-sm">
+  <div class="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-margin-mobile)]">
+    <div class="flex flex-wrap justify-center md:justify-between items-center gap-[var(--spacing-gutter)] opacity-70">
+      {
+        techStack.map((tech) => (
+          <span class="font-mono-label uppercase tracking-widest text-on-surface hover:text-primary-container transition-colors cursor-default">
+            {tech}
+          </span>
+        ))
+      }
+    </div>
+  </div>
+</section>

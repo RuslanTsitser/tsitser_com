@@ -1,0 +1,130 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Midnight Pulse — light theme (default) */
+:root {
+  --color-background: #f4f7fb;
+  --color-on-background: #1a2025;
+  --color-surface: #f4f7fb;
+  --color-on-surface: #1a2025;
+  --color-on-surface-variant: #5c4f4b;
+  --color-surface-container: #e8eef4;
+  --color-surface-container-low: #eef3f8;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-high: #dde5ed;
+  --color-surface-container-highest: #d0dae4;
+  --color-surface-variant: #d0dae4;
+  --color-primary: #c44a3a;
+  --color-primary-container: #ff725e;
+  --color-on-primary-container: #ffffff;
+  --color-secondary: #3e4758;
+  --color-secondary-container: #dae3f7;
+  --color-on-secondary-container: #283140;
+  --color-outline: #8a726d;
+  --color-outline-variant: #d4c4c0;
+  --glass-bg: rgba(255, 255, 255, 0.65);
+  --glass-border: rgba(0, 0, 0, 0.08);
+  --card-border: rgba(0, 0, 0, 0.08);
+  --wireframe: rgba(255, 114, 94, 0.2);
+  --code-bg: #eef3f8;
+}
+
+.dark {
+  --color-background: #0e1418;
+  --color-on-background: #dde3e9;
+  --color-surface: #0e1418;
+  --color-on-surface: #dde3e9;
+  --color-on-surface-variant: #e0bfba;
+  --color-surface-container: #1a2025;
+  --color-surface-container-low: #161c21;
+  --color-surface-container-lowest: #090f13;
+  --color-surface-container-high: #242b2f;
+  --color-surface-container-highest: #2f363a;
+  --color-surface-variant: #2f363a;
+  --color-primary: #ffb4a8;
+  --color-primary-container: #ff725e;
+  --color-on-primary-container: #700703;
+  --color-secondary: #bec7db;
+  --color-secondary-container: #3e4758;
+  --color-on-secondary-container: #acb5c9;
+  --color-outline: #a78a85;
+  --color-outline-variant: #58413e;
+  --glass-bg: rgba(26, 35, 50, 0.4);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --card-border: rgba(255, 255, 255, 0.1);
+  --wireframe: rgba(255, 114, 94, 0.15);
+  --code-bg: #0d1117;
+}
+
+@theme {
+  --font-headline: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-body: Inter, ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --color-background: var(--color-background);
+  --color-on-background: var(--color-on-background);
+  --color-surface: var(--color-surface);
+  --color-on-surface: var(--color-on-surface);
+  --color-on-surface-variant: var(--color-on-surface-variant);
+  --color-surface-container: var(--color-surface-container);
+  --color-surface-container-low: var(--color-surface-container-low);
+  --color-surface-container-lowest: var(--color-surface-container-lowest);
+  --color-surface-container-high: var(--color-surface-container-high);
+  --color-surface-container-highest: var(--color-surface-container-highest);
+  --color-surface-variant: var(--color-surface-variant);
+  --color-primary: var(--color-primary);
+  --color-primary-container: var(--color-primary-container);
+  --color-on-primary-container: var(--color-on-primary-container);
+  --color-secondary: var(--color-secondary);
+  --color-secondary-container: var(--color-secondary-container);
+  --color-on-secondary-container: var(--color-on-secondary-container);
+  --color-outline: var(--color-outline);
+  --color-outline-variant: var(--color-outline-variant);
+
+  --spacing-section-gap: 7.5rem;
+  --spacing-container-max: 75rem;
+  --spacing-gutter: 1.5rem;
+  --spacing-margin-mobile: 1.25rem;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-background);
+  color: var(--color-on-surface);
+}
+
+.font-headline {
+  font-family: var(--font-headline);
+}
+
+.font-mono-label {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  line-height: 1;
+}
+
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+}
+
+.hero-wireframe {
+  position: absolute;
+  border: 1px solid var(--wireframe);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+  display: inline-block;
+  vertical-align: middle;
+}

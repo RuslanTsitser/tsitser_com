@@ -1,0 +1,18 @@
+<button
+  type="button"
+  id="theme-toggle"
+  class="flex items-center justify-center size-10 rounded-lg border border-[var(--card-border)] text-primary-container hover:bg-primary-container/10 transition-colors"
+  aria-label="Toggle light and dark theme"
+>
+  <span class="material-symbols-outlined dark:hidden">dark_mode</span>
+  <span class="material-symbols-outlined hidden dark:inline">light_mode</span>
+</button>
+
+<script>
+  const btn = document.getElementById('theme-toggle');
+  btn?.addEventListener('click', () => {
+    const root = document.documentElement;
+    const isDark = root.classList.toggle('dark');
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  });
+</script>

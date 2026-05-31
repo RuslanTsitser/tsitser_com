@@ -1,0 +1,36 @@
+---
+import { about, services } from '../data/site';
+---
+
+<section class="py-[var(--spacing-section-gap)]" id="about">
+  <div class="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-margin-mobile)]">
+    <div class="flex flex-col md:flex-row gap-16 md:gap-24">
+      <div class="w-full md:w-2/5 space-y-12">
+        {
+          services.map((s) => (
+            <div class="flex items-center gap-[var(--spacing-gutter)] group">
+              <div class="p-4 bg-surface-container rounded-xl group-hover:bg-primary-container/20 transition-all">
+                <span class="material-symbols-outlined text-primary-container text-4xl">{s.icon}</span>
+              </div>
+              <h3 class="font-headline text-2xl font-semibold">{s.title}</h3>
+            </div>
+          ))
+        }
+      </div>
+      <div class="w-full md:w-3/5">
+        <h2 class="font-headline text-4xl md:text-5xl font-extrabold mb-8">About me</h2>
+        <p class="text-lg text-on-surface-variant mb-12 max-w-2xl leading-relaxed">{about.text}</p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {
+            about.stats.map((stat) => (
+              <div class="p-8 border border-[var(--card-border)] rounded-xl hover:border-primary-container/50 transition-colors bg-surface-container-low">
+                <span class="font-headline text-4xl font-bold text-primary-container block">{stat.value}</span>
+                <span class="font-mono-label text-on-surface-variant uppercase mt-2 block">{stat.label}</span>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

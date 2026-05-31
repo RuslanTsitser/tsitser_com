@@ -1,0 +1,38 @@
+---
+interface Props {
+  type: 'repeat' | 'ar' | 'tonnus';
+}
+
+const { type } = Astro.props;
+---
+
+{type === 'repeat' && (
+  <div class="w-full h-full rounded-lg p-6 flex flex-col justify-center gap-3 bg-[var(--code-bg)] border border-[var(--card-border)] font-mono-label text-sm">
+    <p class="text-primary-container font-bold">Repeat Tutor</p>
+    <p class="text-on-surface-variant">AI: Your sentence has a small mistake...</p>
+    <p class="text-on-surface/80 pl-4 border-l-2 border-primary-container">Use past simple: "I went" not "I goed"</p>
+    <p class="text-on-surface-variant mt-2 flex items-center gap-2">
+      <span class="material-symbols-outlined text-primary-container text-base">call</span>
+      Voice practice session
+    </p>
+  </div>
+)}
+
+{type === 'ar' && (
+  <div class="w-full h-full rounded-lg p-6 flex items-center justify-center bg-[var(--code-bg)] border border-[var(--card-border)] relative overflow-hidden">
+    <div class="absolute inset-0 opacity-30 bg-gradient-to-br from-primary-container/40 to-transparent"></div>
+    <div class="relative text-center z-10">
+      <span class="material-symbols-outlined text-primary-container text-6xl mb-2">draw</span>
+      <p class="font-mono-label text-on-surface-variant">AR · Camera · 9M+ downloads</p>
+    </div>
+  </div>
+)}
+
+{type === 'tonnus' && (
+  <div class="w-full h-full rounded-lg p-4 bg-[var(--code-bg)] border border-[var(--card-border)] font-mono-label text-xs text-on-surface/80 overflow-hidden">
+    <p class="text-primary-container/80">ws.connect('/realtime')</p>
+    <p class="text-emerald-500 dark:text-emerald-400">✓ sheet updated</p>
+    <p class="text-on-surface-variant">JWT refresh · charts · editor</p>
+    <p class="mt-4 text-primary-container/60">Firebase Analytics · Remote Config</p>
+  </div>
+)}

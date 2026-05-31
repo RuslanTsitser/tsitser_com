@@ -1,0 +1,32 @@
+---
+import { site, social } from '../data/site';
+---
+
+<footer class="w-full py-[var(--spacing-section-gap)] bg-surface-container-lowest border-t border-[var(--card-border)]">
+  <div
+    class="flex flex-col items-center gap-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-margin-mobile)]"
+  >
+    <span class="font-headline text-xl font-bold text-on-surface">{site.name}</span>
+    <p class="text-on-surface-variant text-center max-w-md">
+      Flutter developer · Repeat Tutor · Florianópolis, Brazil
+    </p>
+    <div class="flex gap-8 mt-4">
+      {
+        social.map((item) => (
+          <a
+            href={item.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-on-surface-variant hover:text-primary-container transition-transform hover:scale-110"
+            aria-label={item.label}
+          >
+            <span class="material-symbols-outlined text-3xl">{item.icon}</span>
+          </a>
+        ))
+      }
+    </div>
+    <p class="text-sm text-on-surface-variant/70 mt-8">
+      © {new Date().getFullYear()} {site.name}. Design: Midnight Pulse (Stitch).
+    </p>
+  </div>
+</footer>
