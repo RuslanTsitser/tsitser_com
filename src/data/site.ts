@@ -19,14 +19,14 @@ export const nav = [
 ] as const;
 
 export const skills = [
-  { name: 'Flutter', color: '#54C5F8' },
-  { name: 'Dart', color: '#0175C2' },
-  { name: 'Firebase', color: '#FFCA28' },
-  { name: 'AR', color: '#4B634E' },
-  { name: 'iOS', color: '#555555' },
-  { name: 'Android', color: '#3DDC84' },
-  { name: 'Git', color: '#F05032' },
-  { name: 'GitHub', color: '#24292F' },
+  { name: 'Flutter', slug: 'flutter' },
+  { name: 'Dart', slug: 'dart' },
+  { name: 'Firebase', slug: 'firebase' },
+  { name: 'AR', materialIcon: 'view_in_ar' },
+  { name: 'iOS', slug: 'apple' },
+  { name: 'Android', slug: 'android' },
+  { name: 'Git', slug: 'git' },
+  { name: 'GitHub', slug: 'github' },
 ] as const;
 
 export const about = {

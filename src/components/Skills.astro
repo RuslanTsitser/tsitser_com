@@ -1,5 +1,7 @@
 ---
 import { skills } from '../data/site';
+import SkillIcon from './SkillIcon.astro';
+import { getSkillIcon } from '../lib/skill-icons';
 ---
 
 <section class="py-[var(--spacing-section)] px-5 md:px-10" id="skills">
@@ -7,17 +9,26 @@ import { skills } from '../data/site';
     <h2 class="section-title mb-12 md:mb-16">Skills</h2>
     <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4 md:gap-6">
       {
-        skills.map((skill) => (
-          <div class="card-surface flex flex-col items-center justify-center gap-3 p-5 md:p-6 aspect-square">
-            <div
-              class="size-12 md:size-14 rounded-xl flex items-center justify-center text-white font-bold text-sm"
-              style={`background: ${skill.color};`}
-            >
-              {skill.name.slice(0, 2).toUpperCase()}
+        skills.map((skill) => {
+          const icon = 'slug' in skill ? getSkillIcon(skill.slug) : undefined;
+          const tint = icon ? `#${icon.hex}` : 'var(--green)';
+
+          return (
+            <div class="card-surface flex flex-col items-center justify-center gap-3 p-5 md:p-6 aspect-square">
+              <div
+                class="size-12 md:size-14 rounded-xl flex items-center justify-center"
+                style={`background: color-mix(in srgb, ${tint} 16%, var(--bg-card));`}
+              >
+                <SkillIcon
+                  slug={'slug' in skill ? skill.slug : ''}
+                  materialIcon={'materialIcon' in skill ? skill.materialIcon : undefined}
+                  title={skill.name}
+                />
+              </div>
+              <span class="text-xs md:text-sm font-semibold text-[var(--text-muted)]">{skill.name}</span>
             </div>
-            <span class="text-xs md:text-sm font-semibold text-[var(--text-muted)]">{skill.name}</span>
-          </div>
-        ))
+          );
+        })
       }
     </div>
   </div>

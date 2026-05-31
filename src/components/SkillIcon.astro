@@ -1,0 +1,31 @@
+---
+import { getSkillIcon } from '../lib/skill-icons';
+
+interface Props {
+  slug: string;
+  materialIcon?: string;
+  title: string;
+  color?: string;
+}
+
+const { slug, materialIcon, title, color = 'var(--green)' } = Astro.props;
+const icon = getSkillIcon(slug);
+---
+
+{
+  icon ? (
+    <svg
+      role="img"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+      class="size-8 md:size-9"
+      aria-label={title}
+    >
+      <path fill={`#${icon.hex}`} d={icon.path} />
+    </svg>
+  ) : materialIcon ? (
+    <span class="material-symbols-outlined text-4xl md:text-[2.75rem]" style={`color: ${color};`} aria-hidden="true">
+      {materialIcon}
+    </span>
+  ) : null
+}
